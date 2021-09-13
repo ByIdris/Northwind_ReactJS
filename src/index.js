@@ -5,7 +5,12 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 
-ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(
+    <BrowserRouter>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <App />
+    </BrowserRouter>,
+    document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
