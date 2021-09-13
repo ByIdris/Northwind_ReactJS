@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Table, Dimmer, Loader, Button } from 'semantic-ui-react'
+import { Table, Dimmer, Loader, Button, Icon } from 'semantic-ui-react'
 import ProductService from '../services/ProductService'
 
 export default function ProductList() {
@@ -43,7 +43,13 @@ export default function ProductList() {
                             <Table.Cell>{product.unitsInStock}</Table.Cell>
                             <Table.Cell>{product.unitPrice.toFixed(2)} ₺</Table.Cell>
                             <Table.Cell>
-                                <Button floated="left" as={Link} color="teal" icon="edit" />
+                                <Button floated="left" as={Link} color="green" icon={
+                                    <Icon.Group>
+                                        <Icon name="cart" />
+                                        <Icon inverted corner name="add" />
+                                    </Icon.Group>
+                                } />
+                                <Button as={Link} color="teal" icon="edit" />
                                 <Button as={Link} color="red" icon="delete" />
                             </Table.Cell>
                         </Table.Row>

@@ -21,9 +21,11 @@ export default function cartReducer(state = initialState, { type, payload }) {
                 }
             }
         case REMOVE_FROM_CART:
-            
-            break;
+            return {
+                ...state,
+                cartItems: state.cartItems.filter(c => c.product.id !== payload.id)
+            }
         default:
-            break;
+            return state;
     }
 }
