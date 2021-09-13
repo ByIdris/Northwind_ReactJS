@@ -41,7 +41,7 @@ export default function ProductList() {
                             <Table.Cell>{product.category.categoryName}</Table.Cell>
                             <Table.Cell>{product.quantityPerUnit}</Table.Cell>
                             <Table.Cell>{product.unitsInStock}</Table.Cell>
-                            <Table.Cell>{product.unitPrice} ₺</Table.Cell>
+                            <Table.Cell>{product.unitPrice.toFixed(2)} ₺</Table.Cell>
                             <Table.Cell>
                                 <Button floated="left" as={Link} color="teal" icon="edit" />
                                 <Button as={Link} color="red" icon="delete" />

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Card, Dimmer, Loader, Segment } from 'semantic-ui-react'
+import { Card, Dimmer, Loader } from 'semantic-ui-react'
 import ProductService from '../services/ProductService'
 
 export default function ProductDetail() {
@@ -23,15 +23,13 @@ export default function ProductDetail() {
         )
     }
     return (
-        <Segment inverted>
-            <Card centered>
-                <Card.Content>
-                    <Card.Header>{product.productName}</Card.Header>
-                    <Card.Meta>{product.category.categoryName}</Card.Meta>
-                    <Card.Description>{product.quantityPerUnit}</Card.Description>
-                </Card.Content>
-                <Card.Content extra>{product.unitPrice} ₺</Card.Content>
-            </Card>
-        </Segment>
+        <Card centered>
+            <Card.Content>
+                <Card.Header>{product.productName}</Card.Header>
+                <Card.Meta>{product.category.categoryName}</Card.Meta>
+                <Card.Description>{product.quantityPerUnit}</Card.Description>
+            </Card.Content>
+            <Card.Content extra>{product.unitPrice.toFixed(2)} ₺</Card.Content>
+        </Card>
     )
 }
