@@ -55,7 +55,7 @@ export default function ProductList() {
                                 <Button floated="left" as={Link} color="green" icon={
                                     <Icon.Group>
                                         <Icon name="cart" />
-                                        <Icon inverted corner name="add" />
+                                        <Icon inverted corner name="remove" />
                                     </Icon.Group>
                                 } onClick={() => handleAddToCart(product)} />
                                 <Button as={Link} color="teal" icon="edit" />
