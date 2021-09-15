@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Table, Dimmer, Loader, Button, Icon } from 'semantic-ui-react'
 import ProductService from '../services/ProductService'
+import { addToCart } from '../store/actions/cartActions'
 
 export default function ProductList() {
+    const dispatch = useDispatch()
     const [isLoading, setLoading] = useState(true);
     const [products, setProducts] = useState([])
 
@@ -14,6 +17,7 @@ export default function ProductList() {
             setLoading(false)
         })
     }, [])
+
     if (isLoading) {
         return (
             <Dimmer active inverted>
@@ -21,6 +25,11 @@ export default function ProductList() {
             </Dimmer>
         )
     }
+
+    const handleAddToCart = (product) => {
+        dispatch(addToCart(product))
+    }
+
     return (
         <Table celled inverted>
             <Table.Header>
@@ -48,7 +57,7 @@ export default function ProductList() {
                                         <Icon name="cart" />
                                         <Icon inverted corner name="add" />
                                     </Icon.Group>
-                                } />
+                                } onClick={() => handleAddToCart(product)} />
                                 <Button as={Link} color="teal" icon="edit" />
                                 <Button as={Link} color="red" icon="delete" />
                             </Table.Cell>
