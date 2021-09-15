@@ -2,10 +2,13 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
 import { Button, Dropdown, Icon, Label, Menu } from 'semantic-ui-react'
+import styled from "styled-components";
 
 export default function CartSummary() {
     const { cartItems } = useSelector(state => state.cart)
-
+    const dropdownRemoveFromCartStyle = {
+        
+    }
     return (
         <div>
             <Menu.Item>
@@ -19,10 +22,10 @@ export default function CartSummary() {
                                             {cartItem.quantity}
                                         </Label>
                                         {cartItem.product.productName}
-                                        <Button color="red" icon={
+                                        <Button as={Link} color="red" icon={
                                             <Icon.Group>
                                                 <Icon name="cart" />
-                                                <Icon inverted corner="bottom right" size="tiny" name="delete" />
+                                                <Icon inverted corner name="remove" />
                                             </Icon.Group>
                                         } />
                                     </Dropdown.Item>
