@@ -16,17 +16,15 @@ export default function Navi() {
         setIsAuthenticated(true)
     }
     return (
-        <div>
-            <Menu inverted fixed="top" size='small'>
-                <Container>
-                    <Menu.Item as={Link} to="/" content="Home"/>
-                    <Menu.Item as={Link} to="/products" content="Products"/>
-                    <Menu.Menu position='right'>
-                        <CartSummary />
-                        {isAuthenticated ? <SignedIn signOut={handleSignOut} /> : <SignedOut signIn={handleSignIn} />}
-                    </Menu.Menu>
-                </Container>
-            </Menu>
-        </div>
+        <Menu inverted fixed="top" size='small'>
+            <Container>
+                <Menu.Item as={Link} to="/" content="Home" />
+                <Menu.Item as={Link} to="/products" content="Products" />
+                <Menu.Menu position='right'>
+                    <CartSummary />
+                    {isAuthenticated ? <SignedIn signOut={handleSignOut} /> : <SignedOut signIn={handleSignIn} />}
+                </Menu.Menu>
+            </Container>
+        </Menu>
     )
 }
